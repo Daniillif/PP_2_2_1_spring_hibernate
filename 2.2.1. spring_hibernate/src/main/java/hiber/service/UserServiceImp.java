@@ -1,6 +1,7 @@
 package hiber.service;
 
 import hiber.dao.UserDao;
+import hiber.model.Car;
 import hiber.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,4 +27,11 @@ public class UserServiceImp implements UserService {
       return userDao.listUsers();
    }
 
+   //5. В сервис добавьте метод, который с помощью hql-запроса
+   // будет доставать юзера, владеющего машиной по ее модели и серии.
+   @Transactional
+   @Override
+   public User getUserByCar(String model, int series){
+      return userDao.getUserByCar(model,series);
+   }
 }
